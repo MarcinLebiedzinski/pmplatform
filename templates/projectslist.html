@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+          <div class="py-1">
+            <span class="fs-5 fw-semibold">Projects list</span>
+          </div>
+
+          <div>
+            <table class="table">
+
+              <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Responsible person</th>
+                    <th scope="col">Is finish</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">View tasks</th>
+                    <th scope="col">New Task</th>
+                    <th scope="col">Delete</th>
+                </tr>
+              </thead>
+
+              <tbody class="table-group-divider">
+
+              {% for project in projects %}
+                <tr>
+                    <th scope="row">{{project.name}}</th>
+                    <td>{{project.manager.first_name}} {{project.manager.last_name}}</td>
+                    <td>{{project.is_finish}}</td>
+                    <td><a href="{% url 'project_details' project.id %}">details</a></td>
+                    <td><a href="{% url 'tasks_list' project.id %}">view tasks</a></td>
+                    <td><a href="{% url 'task_create' project.id %}">new task</a></td>
+                    <td><a href="{% url 'project_delete' project.id %}">delete</a></td>
+                </tr>
+              {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+
+{% endblock %}

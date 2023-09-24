@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+          <div class="py-1">
+            <span class="fs-5 py-2">Task report</span>
+          </div>
+
+          <div>
+            <table class="table">
+
+              <thead>
+                <tr>
+                    <th scope="col">Project</th>
+                    <th scope="col">Task name</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">hours</th>
+
+                </tr>
+              </thead>
+
+              <tbody class="table-group-divider">
+
+              {% for report in reports_list %}
+                <tr>
+                    <th scope="row">{{report.0}}</th>
+                    <td>{{report.1}}</td>
+                    <td>{{report.2}} {{report.3}}</td>
+                    <td>{{report.4}}</td>
+                    <td>{{report.5}}</td>
+                </tr>
+              {% endfor %}
+
+              </tbody>
+            </table>
+
+          </div>
+
+          <div class="py-1 text-lg-start">
+          <a href="{% url 'task_report_tasks_list' project_id %}">
+              <button type="button" class="btn btn-outline-primary">Back</button>
+          </a>
+          </div>
+
+{% endblock %}

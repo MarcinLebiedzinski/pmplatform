@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+          <div class="py-1">
+            <span class="fs-5 py-2">Total tasks hours</span>
+          </div>
+
+          <div>
+            <table class="table">
+
+              <thead>
+                <tr>
+                    <th scope="col">Task name</th>
+                    <th scope="col">Total hours</th>
+                </tr>
+              </thead>
+
+              <tbody class="table-group-divider">
+
+              {% for task in list_of_tasks %}
+                <tr>
+                    <th scope="row">{{task.2}} - {{task.0}}</th>
+                    <td>{{task.1}}</td>
+                </tr>
+              {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+
+{% endblock %}

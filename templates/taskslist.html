@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+          <div class="py-1">
+            <span class="fs-5 fw-semibold">{{project.name}}</span><br>
+            <span class="fs-5 py-2">Tasks List</span>
+          </div>
+
+          <div>
+            <table class="table">
+
+              <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Set up date</th>
+                    <th scope="col">Predicted finish date</th>
+                    <th scope="col">Is finish</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Delete</th>
+                </tr>
+              </thead>
+
+              <tbody class="table-group-divider">
+
+              {% for task in tasks %}
+                <tr>
+                    <th scope="row">{{task.name}}</th>
+                    <td>{{task.set_up_date}}</td>
+                    <td>{{task.predicted_finish_date}}</td>
+                    <td>{{task.is_finish}}</td>
+                    <td><a href="{% url 'task_details' task.id %}">details</a></td>
+                    <td><a href="{% url 'task_delete' project.id task.id %}">delete</a></td>
+                </tr>
+              {% endfor %}
+
+              </tbody>
+            </table>
+
+          </div>
+
+          <div class="py-1 text-lg-start">
+          <a href="{% url 'task_create' project.id %}">
+              <button type="button" class="btn btn-outline-primary">New task</button>
+          </a>
+          </div>
+
+          <div class="py-1 text-lg-start">
+          <a href="{% url 'projects_list' %}">
+              <button type="button" class="btn btn-outline-primary">Back</button>
+          </a>
+          </div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+          <div class="py-1">
+            <span class="fs-5 fw-semibold">Unreported days for user: {{user}}</span>
+          </div>
+
+          <div>
+            <table class="table">
+
+              <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Day name</th>
+                    <th scope="col">Comment</th>
+                </tr>
+              </thead>
+
+              <tbody class="table-group-divider">
+
+              {% for day in list_of_unreported_days %}
+                <tr>
+                    <th scope="row">{{day.0}}</th>
+                    <th scope="row">{{day.1 | date:"l" }}</th>
+                    {% if day.1.weekday == 5 %}
+                        <th scope="row">Non-working day</th>
+                    {% elif day.1.weekday == 6 %}
+                        <th scope="row">Non-working day</th>
+                    {% else %}
+                        <th scope="row">to fill</th>
+                    {% endif %}
+                </tr>
+              {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+          <div class="py-1">
+            <span class="fs-5 fw-semibold">Projects list</span>
+          </div>
+
+          <div>
+            <table class="table">
+
+              <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Responsible person</th>
+                    <th scope="col">Is finish</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Show tasks</th>
+                </tr>
+              </thead>
+
+              <tbody class="table-group-divider">
+
+              {% for project in projects %}
+                <tr>
+                    <th scope="row">{{project.name}}</th>
+                    <td>{{project.manager.first_name}} {{project.manager.last_name}}</td>
+                    <td>{{project.is_finish}}</td>
+                    <td><a href="{% url 'change_project_status' project.id %}">Change</a></td>
+                    <td><a href="{% url 'task_report_tasks_list' project.id %}">Show tasks</a></td>
+                </tr>
+              {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+
+{% endblock %}

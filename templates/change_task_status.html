@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="py-2 text-lg-start">
+    <span class="fs-3 fw-semibold"></span>Are you sure you want to change status? <br>
+
+</div>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.choice.as_hidden }}
+    <input class="btn btn-outline-primary" type="submit" value="Change">
+</form>
+
+<div class="py-4 text-lg-start">
+    <span class="fs-3 fw-semibold"></span>Do You want to cancel action?<br>
+    <a href="{% url 'add_time_to_task' project.id %}">
+        <button type="button" class="btn btn-outline-primary">back</button>
+    </a>
+</div>
+
+
+{% endblock %}

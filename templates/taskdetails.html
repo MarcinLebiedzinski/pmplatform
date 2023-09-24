@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="py-5 text-lg-start">
+        <span class="fs-3 fw-semibold">Task name: {{task.name}}</span><br>
+        <span class="fs-5"></span><br>
+        <span class="fs-5"><b>Description:</b> </span><br>
+        <span class="fs-5">{{task.description}}</span><br>
+        <span class="fs-5"></span><br>
+        <span class="fs-6"><b>Set up Date:</b> {{task.set_up_date}}</span><br>
+        <span class="fs-6"><b>Predicted Finish Date:</b> {{task.predicted_finish_date}}</span><br>
+        <span class="fs-6"><b>Is finish:</b> {{task.is_finish}}</span><br>
+        <span class="fs-6"><b>Involved person:</b> {{manager.first_name}} {{manager.last_name}}</span><br>
+
+        {% for user in users_list %}
+        <span class="fs-6"> {{user.0}} {{user.1}}</span><br>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

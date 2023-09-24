@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+          <div class="py-1">
+            <span class="fs-5 fw-semibold">User details</span>
+          </div>
+
+          <div>
+            <table class="table">
+
+              <thead>
+                <tr>
+                    <th scope="col">User</th>
+                    <th scope="col">First name</th>
+                    <th scope="col">Last name</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Is active</th>
+                </tr>
+              </thead>
+
+              <tbody class="table-group-divider">
+
+              {% for member in team %}
+                <tr>
+                    <th scope="row">{{member.username}}</th>
+                    <td>{{member.first_name}}</td>
+                    <td>{{member.last_name}}</td>
+                    <td>{{member.email}}</td>
+                    <td>{{member.is_active}}</td>
+                </tr>
+              {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+
+{% endblock %}
+

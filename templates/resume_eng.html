@@ -1,0 +1,415 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <met#aeb3b8et="utf-8">
+        <title>Resume</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <!-- Favicon -->
+        <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 sticky-lg-top vh-100">
+                    <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
+                        <img class="w-100 img-fluid mb-4" src="{% static 'img/profile.jpg' %}" alt="Image">
+                        <h1 class="text-primary mt-2">Marcin Lebiedziński</h1>
+                        <div class="mb-4" style="height: 22px;">
+                            <h4 class="typed-text-output d-inline-block text-light"></h4>
+                            <div class="typed-text d-none">Web Backend Developer, Python enthusiast </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-auto mb-3">
+                            <a class="btn btn-secondary btn-square mx-1" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-secondary btn-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-secondary btn-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-secondary btn-square mx-1" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="d-flex align-items-end justify-content-between border-top">
+                            <a href="" class="btn w-50 border-end">Download CV</a>
+                            <a href="#contact" class="btn w-50 btn-scroll">Contact Me</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <!-- About Start -->
+                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">About Me</h1>
+                        <p>I am an experienced designer in the construction industry with a passion for creating
+                            modern and functional solutions. For many years I have gained skills and knowledge
+                            in the field of design, supervision and implementation of various investments.
+                            Now I would like to change the direction of my career and take on the challenge
+                            as a Junior Python Developer. I am interested in information technology,
+                            especially web programming and data engineering.
+                            I completed a stationary programming course and created several of my own projects that
+                            I would be happy to present at an interview.
+                            Although I do not have commercial experience as a programmer,
+                            I believe that my previous experience will be a valuable asset because
+                            I can think analytically, creatively and most often understand the needs of the client.
+                            I would like to take up work in an experienced team to further develop
+                            my passion and deepen my knowledge. </p>
+                        <div class="row mb-4">
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Name:</span> Marcin Lebiedziński
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Degree:</span> M.Sc.Eng
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Phone:</span> +48 506452691
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Email:</span> lebiedzinski.marcin@gmail.com
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Address:</span> Warsaw, Poland
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Github:</span>
+                                <a href="https://github.com/MarcinLebiedzinski" class="link-light">https://github.com/MarcinLebiedzinski</a>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- About End -->
+
+                    <!-- Education -->
+                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">Education</h1>
+                        <div class="border-start border-2 border-light pt-2 ps-5">
+                            <div class="position-relative mb-4">
+                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
+                                <h5 class="mb-1">Master’s degree</h5>
+                                <p class="mb-2 fw-bold">Warsaw University of Technology | 2006-2008</p>
+                                <p>Faculty of Civil Engineering, specialization: Civil Engineering Structures</p>
+                            </div>
+
+                            <div class="position-relative mb-4">
+                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
+                                <h5 class="mb-1">Engineer’s degree</h5>
+                                <p class="mb-2 fw-bold">Warsaw University of Technology | 2001-2005</p>
+                                <p>Faculty of Civil Engineering, specialization: Civil Engineering Structures</p>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Education End -->
+
+
+                    <!-- Skills Start -->
+                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">Skills</h1>
+                        <div class="row">
+
+                            <div class="col-sm-6">
+
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">PYTHON</p>
+                                    </div>
+                                </div>
+
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">FRAMEWORK: DJANGO, FLASK</p>
+                                    </div>
+                                </div>
+
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">HTML / JAVASCRIPT</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">SQL (POSTGRESQL)</p>
+                                    </div>
+
+                                </div>
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">GIT</p>
+                                    </div>
+                                </div>
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">LINUX</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Skills End -->
+
+                    <!-- Languages Start -->
+                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">Languages</h1>
+                        <div class="row">
+
+                            <!-- First column -->
+                            <div class="col-sm-6">
+
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">ENGLISH - B2</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">POLISH - NATIVE</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Languages End -->
+
+
+                    <!-- IT Expericence -->
+                    <section class="py-5 wow fadeInUp border-bottom" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">Expericence</h1>
+                        <div class="border-start border-2 border-light pt-2 ps-5">
+                            <div class="position-relative mb-4">
+                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
+                                <h5 class="mb-1">Bootcamp - Python Developer</h5>
+                                <p class="mb-2">Coders Lab| <small>09.2022 - 04.2023</small></p>
+                                <p>The course consisted of 180 hours of lectures and practical classes
+                                    with a lecturer (in person). The thematic scope included:
+                                    Python basics, object-oriented programming in Python, SQL databases,
+                                    Flask framework, Django framework, JavaScript basics.
+                                    Diploma number: 272/03/2023</p>
+                            </div>
+
+                            <div class="position-relative mb-4">
+                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
+                                <h5 class="mb-1">Portfolio</h5>
+                                <p class="mb-2">Non-commercial apps | <small>2022 - 2023</small></p>
+                                <p>Please see my Portfolio below</p>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- IT Expericence End -->
+
+                    <section class="py-5 border-bottom" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">Portfolio</h1>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row portfolio-container">
+
+                                    <div class="col-md-12 mb-4 portfolio-item">
+                                        <div class="position-relative overflow-hidden mb-2">
+
+                                            <!-- First Portfolio project -->
+                                            <h2 class="mb-1">Project Management Platform</h2>
+                                            <img class="img-fluid w-50 mb-2 rounded-1" src="{% static 'img/portfolio-1.png' %}" alt="">
+                                            <div class="col-sm-12 mb-1">
+                                                <p class="mb-2">The platform was designed to help you organize project processes of Your team.
+                                                    It allows you to measure the execution time of various tasks assigned to projects.</p>
+                                                <p class="mb-2">The way it works is very simple. The team can be composed of any number
+                                                    of employees Each team member can simultaneously work on different
+                                                    tasks from different projects. Team members report time spent on
+                                                    each project's tasks. The growing database offers great
+                                                    opportunities for project managers.</p>
+                                                <p class="mb-1">Below are examples of helpful reports that can be generated.</p>
+                                                <p class="mb-1">* The total time spent on each project by all team members</p>
+                                                <p class="mb-1">* The total time spent on each project task by all team members</p>
+                                                <p class="mb-1">* Detailed report of selected task</p>
+                                                <p class="mb-2">* Unreported time by team members</p>
+                                                <p class="mb-1">* The platform gives you the ability to generate virtually
+                                                    any report that can be useful for your company.
+                                                    It allows for ongoing control of the design process and
+                                                    proper cost estimation for future projects.</p>
+                                            </div>
+                                            <div class="col-sm-12 mb-1">
+                                                <span class="fw-medium text-primary">Used technologies: </span>Python (Django), Postgresql, HTML & CSS (Bootstrap)
+                                            </div>
+                                            <div class="col-sm-12 mb-1">
+                                                <span class="fw-medium text-primary">Github: </span>
+                                                <a href="https://github.com/MarcinLebiedzinski/Project_Management_Platform" class="link-light">https://github.com/MarcinLebiedzinski/Project_Management_Platform</a>
+                                            </div>
+                                            <div class="col-sm-12 mb-5">
+                                                <span class="fw-medium text-primary">Deployed: </span>
+                                                <a href="http://127.0.0.1:8000/pmplatform/submit/" class="link-light">www.martdev.pl/pmplatform</a>
+                                            </div>
+
+                                            <!-- Second Portfolio project -->
+                                            <h2 class="mb-1">Donation App</h2>
+                                            <img class="img-fluid w-50 mb-2 rounded-1" src="{% static 'img/portfolio-2.png' %}" alt="">
+                                            <div class="col-sm-12 mb-1">
+                                                <p class="mb-2">The platform allows you to donate gifts to charitable foundations.
+                                                    The platform brings together proven foundations so you know that
+                                                    what you give goes to good hands. You can easily set up an account,
+                                                    select the items you want to donate from the list and then choose the foundation.
+                                                    The scope of the project included preparing the backend to the existing templates
+                                                    and adding frontend functionalities such as: pagination, organization filtering and others.</p>
+
+
+                                            </div>
+                                            <div class="col-sm-12 mb-1">
+                                                <span class="fw-medium text-primary">Used technologies: </span>Python (Django), Postgresql, HTML, CSS, Java Script
+                                            </div>
+                                            <div class="col-sm-12 mb-1">
+                                                <span class="fw-medium text-primary">Github: </span>
+                                                <a href="https://github.com/MarcinLebiedzinski/Donation_App" class="link-light">https://github.com/MarcinLebiedzinski/Donation_App</a>
+                                            </div>
+                                            <div class="col-sm-12 mb-5">
+                                                <span class="fw-medium text-primary">Deployed: </span>
+                                                <a href="http://wp.pl" class="link-light">www.martdev.pl/donation</a>
+                                            </div>
+
+                                            <!-- Third Portfolio project -->
+                                            <h2 class="mb-1">Cinema Rest Api</h2>
+                                            <img class="img-fluid w-50 mb-2 rounded-1" src="{% static 'img/portfolio-3.png' %}" alt="">
+                                            <div class="col-sm-12 mb-1">
+                                                <p class="mb-2">REST API for cinema management application.
+                                                    Data from the database is returned in Json format</p>
+                                            </div>
+                                            <div class="col-sm-12 mb-1">
+                                                <span class="fw-medium text-primary">Used technologies: </span>Python (Django REST framework), Postgresql
+                                            </div>
+                                            <div class="col-sm-12 mb-1">
+                                                <span class="fw-medium text-primary">Github: </span>
+                                                <a href="https://github.com/MarcinLebiedzinski/Cinema_Rest_Api" class="link-light">https://github.com/MarcinLebiedzinski/Cinema_Rest_Api</a>
+                                            </div>
+                                            <div class="col-sm-12 mb-5">
+                                                <span class="fw-medium text-primary">Deployed: </span>
+                                                <a href="http://wp.pl" class="link-light">www.martdev.pl/cinema_rest_api</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Portfolio End -->
+
+                    <!-- Employment history start -->
+                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">Employment history</h1>
+
+                        <div class="border-start border-2 border-light pt-2 ps-5">
+                            <div class="position-relative mb-4">
+                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
+                                <h5 class="mb-1">Senior Design Engineer</h5>
+                                <p class="mb-2">Self employed | <small>06.2023 - now</small></p>
+                                <p>Designing temporary structures for construction purposes for the UK market </p>
+                            </div>
+
+                            <div class="position-relative mb-4">
+                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
+                                <h5 class="mb-1">Design Team Manager / Designer</h5>
+                                <p class="mb-2">Ulma Construccion Polska S.A. - Warsaw | <small>06.2010 - 05.2023</small></p>
+                                <p>Managing the work of a project team, supervising project documentation,
+                                   meetings with clients, negotiations. Specialization: Self-climbing structures
+                                   for high-rise buildings. </p>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Employment history End -->
+
+                    <!-- Contact Start -->
+                    <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
+                        <h1 class="title pb-3 mb-5">Contact Me</h1>
+						<p class="mb-4">The contact form is currently inactive. </p>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0 bg-secondary" id="name" placeholder="Your Name">
+                                        <label for="name">Your Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control border-0 bg-secondary" id="email" placeholder="Your Email">
+                                        <label for="email">Your Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0 bg-secondary" id="subject" placeholder="Subject">
+                                        <label for="subject">Subject</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control border-0 bg-secondary" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
+                                        <label for="message">Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                    <!-- Contact End -->
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+        <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+        <script src="{% static 'lib/typed/typed.min.js' %}"></script>
+        <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+        <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+        <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+        <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+        <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+
+        <!-- Contact Javascript File -->
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src="mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="py-5 text-lg-start">
+        <span class="fs-3 fw-semibold">Project Name: {{project.name}}</span><br>
+        <span class="fs-5"></span><br>
+        <span class="fs-5"><b>Description:</b> </span><br>
+        <span class="fs-5">{{project.description}}</span><br>
+        <span class="fs-5"></span><br>
+        <span class="fs-6"><b>Set up Date:</b> {{project.set_up_date}}</span><br>
+        <span class="fs-6"><b>Predicted Finish Date:</b> {{project.predicted_finish_date}}</span><br>
+        <span class="fs-6"><b>Is finish:</b> {{project.is_finish}}</span><br>
+        <span class="fs-6"><b>Responsible person:</b> {{manager.first_name}} {{manager.last_name}}</span><br>
+    </div>
+
+{% endblock %}

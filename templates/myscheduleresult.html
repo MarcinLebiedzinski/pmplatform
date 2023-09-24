@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+          <div class="py-1">
+            <span class="fs-5 fw-semibold">User: {{user}} - Reports list</span>
+          </div>
+
+          <div>
+            <table class="table">
+
+              <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Day name</th>
+                    <th scope="col">Project</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">hours</th>
+                    <th scope="col">Delete</th>
+                </tr>
+              </thead>
+
+              <tbody class="table-group-divider">
+
+              {% for report in reports_list %}
+                <tr>
+                    <th scope="row">{{report.1}}</th>
+                    <th>{{ report.1 | date:"l" }}</th>
+                    <td>{{report.2}}</td>
+                    <td>{{report.3}}</td>
+                    <td>{{report.4}}</td>
+                    <td><a href="{% url 'report_delete' report.0 %}">delete</a></td>
+
+                </tr>
+              {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+
+{% endblock %}
