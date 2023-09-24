@@ -1,2 +1,2 @@
-release: python pmplatform/manage.py migrate
-web: gunicorn pmplatform.pmplatform.wsgi --log-file=-
+release: python manage.py migrate
+web: gunicorn pmplatform.wsgi --log-file=-
