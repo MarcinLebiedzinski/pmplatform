@@ -3,7 +3,7 @@ from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 
 from .models import Project, Task, UserTask
 from django.contrib.auth.models import User
@@ -13,6 +13,7 @@ from pmplatform_app.forms import AddTimeForm, MyScheduleForm, TaskChoiceForm, Un
 
 import pandas as pd
 
+import csv
 
 # Create your views here.
 # view - page where you can login to the application
@@ -536,3 +537,31 @@ class TaskReport(PermissionRequiredMixin, LoginRequiredMixin, View):
                'project_id': Project.objects.get(id=task.project_id).id,
                'is_staff': request.user.is_staff}
         return render(request, 'taskreport.html', ctx)
+
+
+class TotalProjectsTimeDownloadCsv(PermissionRequiredMixin, LoginRequiredMixin, View):
+    permission_required = 'pmplatform_app.view_choice'
+
+    def get(self, request):
+        projects = Project.objects.all()
+        list_of_projects = []
+        for project in projects:
+            tasks = Task.objects.filter(project_id=project.id)
+            hours_of_project = 0
+            list_of_tasks = []
+            for task in tasks:
+                reports = UserTask.objects.filter(task_id=task.id)
+                hours_of_task = 0
+                for report in reports:
+                    hours_of_task += report.amount_of_time
+                list_of_tasks.append((task.name, hours_of_task))
+                hours_of_project += hours_of_task
+            list_of_projects.append((project.name, hours_of_project))
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="totalprojectstime.csv"'
+
+        writer = csv.writer(response)
+        for row in list_of_projects:
+            writer.writerow(row)
+
+        return response

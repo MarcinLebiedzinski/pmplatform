@@ -25,6 +25,7 @@ from pmplatform_app.views import TaskReport, TaskReportProjectsList, TaskReportT
 from pmplatform_app.views import Submit, SignOut
 from pmplatform_app.views import AddTimeToProject, AddTimeToTask, AddTime
 from pmplatform_app.views import ChangeProjectStatus, ChangeTaskStatus
+from pmplatform_app.views import TotalProjectsTimeDownloadCsv
 
 from resume_app.views import Resume, CvDownload
 
@@ -59,6 +60,7 @@ urlpatterns = [
     path('pmplatform/taskreporttaskslist/<int:project_id>/', TaskReportTasksList.as_view(), name='task_report_tasks_list'),
     path('pmplatform/reports/taskreport/<int:task_id>/', TaskReport.as_view(), name='task_report'),
 
+    path('pmplatform/reports/total_projects_time_download_csv/', TotalProjectsTimeDownloadCsv.as_view(), name='total_projects_time_download_csv'),
 
     path('', Resume.as_view(), name='resume'),
     path('resume/', Resume.as_view(), name='resume'),
