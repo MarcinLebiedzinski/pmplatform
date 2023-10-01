@@ -26,7 +26,7 @@ from pmplatform_app.views import Submit, SignOut
 from pmplatform_app.views import AddTimeToProject, AddTimeToTask, AddTime
 from pmplatform_app.views import ChangeProjectStatus, ChangeTaskStatus
 
-from resume_app.views import Resume
+from resume_app.views import Resume, CvDownload
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -61,6 +61,7 @@ urlpatterns = [
 
 
     path('resume/', Resume.as_view(), name='resume'),
+    path('resume/cv_download', CvDownload.as_view(), name='cv_download'),
     path('', Resume.as_view(), name='resume'),
 
     # test
