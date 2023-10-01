@@ -62,4 +62,6 @@ urlpatterns = [
 
     path('resume/', Resume.as_view(), name='resume'),
     path('', Resume.as_view(), name='resume'),
+
+    # test
 ]
