@@ -376,8 +376,8 @@ class UnreportedDays(PermissionRequiredMixin, LoginRequiredMixin, View):
                    'user': user,
                    'dates_list': dates_list,
                    'start_time': start_time,
-                   'start_time_integer': int(start_time.timestamp()),
-                   'end_time_integer': int(end_time.timestamp()),
+                   'start_time_integer': int(start_time.strftime("%Y%m%d%H%M%S")),
+                   'end_time_integer': int(end_time.strftime("%Y%m%d%H%M%S")),
                    'logged_user': request.user,
                    'is_staff': request.user.is_staff,
                    }
