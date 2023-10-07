@@ -64,7 +64,7 @@ urlpatterns = [
     path('pmplatform/reports/total_projects_time_download_csv/', TotalProjectsTimeDownloadCsv.as_view(), name='total_projects_time_download_csv'),
     path('pmplatform/reports/total_tasks_time_download_csv/', TotalTasksTimeDownloadCsv.as_view(), name='total_tasks_time_download_csv'),
     path('pmplatform/reports/taskreport_download_csv/<int:task_id>/', TaskReportDownloadCsv.as_view(), name='task_report_download_csv'),
-    path('pmplatform/reports/unreported_days_download_csv/', UnreportedDaysDownloadCSV.as_view(), name='unreported_days_download_csv'),
+    path('pmplatform/reports/unreported_days_download_csv/<int:user_id>/<int:start_time>/<int:task_id>/', UnreportedDaysDownloadCSV.as_view(), name='unreported_days_download_csv'),
 
     path('', Resume.as_view(), name='resume'),
     path('resume/', Resume.as_view(), name='resume'),

@@ -12,6 +12,7 @@ from pmplatform_app.forms import ProjectAddForm, TaskAddForm, AprovingForm, APRO
 from pmplatform_app.forms import AddTimeForm, MyScheduleForm, TaskChoiceForm, UnreportedDaysForm, LoginForm
 
 import pandas as pd
+import datetime
 
 import csv
 
@@ -373,11 +374,11 @@ class UnreportedDays(PermissionRequiredMixin, LoginRequiredMixin, View):
                 if not UserTask.objects.filter(user_id=user.id, date=day):
                     list_of_unreported_days.append((day.strftime('%Y-%m-%d'), day))
             ctx = {'list_of_unreported_days': list_of_unreported_days,
-                   'user': user,
+                   'user_id': user.id,
                    'dates_list': dates_list,
                    'start_time': start_time,
-                   'start_time_integer': int(start_time.strftime("%Y%m%d%H%M%S")),
-                   'end_time_integer': int(end_time.strftime("%Y%m%d%H%M%S")),
+                   'start_time_int': int(start_time.strftime("%Y%m%d%H%M%S")),
+                   'end_time_int': int(end_time.strftime("%Y%m%d%H%M%S")),
                    'logged_user': request.user,
                    'is_staff': request.user.is_staff,
                    }
@@ -621,13 +622,18 @@ class TaskReportDownloadCsv(PermissionRequiredMixin, LoginRequiredMixin, View):
 class UnreportedDaysDownloadCSV(PermissionRequiredMixin, LoginRequiredMixin, View):
     permission_required = 'pmplatform_app.view_choice'
 
-    def get(self, request):
-        list_of_unreported_days = [(1, 2, 3), (4, 5, 6)]
+    def get(self, request, user_id, start_time_int, end_time_int):
+        start_time = datetime.datetime.strptime(start_time_int, '%Y%m%d')
+        end_time = datetime.datetime.strptime(end_time_int, '%Y%m%d')
+        dates_list = pd.date_range(start=start_time, end=end_time)
+        list_of_unreported_days = []
+        for day in dates_list:
+            if not UserTask.objects.filter(user_id=user_id, date=day):
+                list_of_unreported_days.append((day.strftime('%Y-%m-%d'), day))
         response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename="taskreport.csv"'
+        response['Content-Disposition'] = 'attachment; filename="unreported_days.csv"'
 
         writer = csv.writer(response)
         for row in list_of_unreported_days:
             writer.writerow(row)
         return response
-
