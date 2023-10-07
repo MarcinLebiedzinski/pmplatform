@@ -586,5 +586,29 @@ class TotalTasksTimeDownloadCsv(PermissionRequiredMixin, LoginRequiredMixin, Vie
         writer = csv.writer(response)
         for row in list_of_tasks:
             writer.writerow(row)
+        return response
 
+
+class TaskReportDownloadCsv(PermissionRequiredMixin, LoginRequiredMixin, View):
+    permission_required = 'pmplatform_app.view_choice'
+
+    def get(self, request, task_id):
+        reports = UserTask.objects.filter(task_id=task_id).order_by('date')
+        task = Task.objects.get(id=task_id)
+        reports_list = []
+        for report in reports:
+            reports_list.append((Project.objects.get(id=task.project_id),
+                                 task.name,
+                                 User.objects.get(id=report.user_id).first_name,
+                                 User.objects.get(id=report.user_id).last_name,
+                                 report.date,
+                                 report.amount_of_time
+                                 ))
+
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="taskreport.csv"'
+
+        writer = csv.writer(response)
+        for row in reports_list:
+            writer.writerow(row)
         return response

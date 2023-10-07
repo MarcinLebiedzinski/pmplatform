@@ -38,6 +38,12 @@
 
           </div>
 
+          <div class="p-1">
+            <button type="button" class="btn btn-outline-primary">
+            <a href="{% url 'task_report_download_csv' task.id %}">csv download</a>
+            </button>
+          </div>
+
           <div class="py-1 text-lg-start">
           <a href="{% url 'task_report_tasks_list' project_id %}">
               <button type="button" class="btn btn-outline-primary">Back</button>
