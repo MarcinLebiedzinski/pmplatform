@@ -376,8 +376,11 @@ class UnreportedDays(PermissionRequiredMixin, LoginRequiredMixin, View):
                    'user': user,
                    'dates_list': dates_list,
                    'start_time': start_time,
+                   'start_time_integer': int(start_time.timestamp()),
+                   'end_time_integer': int(end_time.timestamp()),
                    'logged_user': request.user,
-                   'is_staff': request.user.is_staff}
+                   'is_staff': request.user.is_staff,
+                   }
 
             return render(request, 'unreporteddaysresult.html', ctx)
         else:
