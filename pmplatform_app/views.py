@@ -377,8 +377,8 @@ class UnreportedDays(PermissionRequiredMixin, LoginRequiredMixin, View):
                    'user_id': user.id,
                    'dates_list': dates_list,
                    'start_time': start_time,
-                   'start_time_int': int(start_time.strftime("%Y%m%d%H")),
-                   'end_time_int': int(end_time.strftime("%Y%m%d%H")),
+                   'start_time_int': int(start_time.strftime("%Y%m%d")),
+                   'end_time_int': int(end_time.strftime("%Y%m%d")),
                    'logged_user': request.user,
                    'is_staff': request.user.is_staff,
                    }
@@ -623,8 +623,8 @@ class UnreportedDaysDownloadCSV(PermissionRequiredMixin, LoginRequiredMixin, Vie
     permission_required = 'pmplatform_app.view_choice'
 
     def get(self, request, user_id, start_time_int, end_time_int):
-        start_time = datetime.datetime.strptime(str(start_time_int), '%d/%m/%Y %H:%M:%S')
-        end_time = datetime.datetime.strptime(str(end_time_int), '%d/%m/%Y %H:%M:%S')
+        start_time = datetime.datetime.strptime(str(start_time_int), '%Y%m%d')
+        end_time = datetime.datetime.strptime(str(end_time_int), '%Y%m%d')
         dates_list = pd.date_range(start=start_time, end=end_time)
         list_of_unreported_days = []
         for day in dates_list:
