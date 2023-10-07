@@ -623,8 +623,8 @@ class UnreportedDaysDownloadCSV(PermissionRequiredMixin, LoginRequiredMixin, Vie
     permission_required = 'pmplatform_app.view_choice'
 
     def get(self, request, user_id, start_time_int, end_time_int):
-        start_time = datetime.datetime.strptime(str(start_time_int), '%Y%m%d')
-        end_time = datetime.datetime.strptime(str(end_time_int), '%Y%m%d')
+        start_time = datetime.datetime.strptime(str(start_time_int), '%d/%m/%Y %H:%M:%S')
+        end_time = datetime.datetime.strptime(str(end_time_int), '%d/%m/%Y %H:%M:%S')
         dates_list = pd.date_range(start=start_time, end=end_time)
         list_of_unreported_days = []
         for day in dates_list:
