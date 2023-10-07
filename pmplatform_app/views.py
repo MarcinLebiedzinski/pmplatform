@@ -379,8 +379,6 @@ class UnreportedDays(PermissionRequiredMixin, LoginRequiredMixin, View):
                    'logged_user': request.user,
                    'is_staff': request.user.is_staff}
 
-            request.session['unreported_days'] = list_of_unreported_days
-
             return render(request, 'unreporteddaysresult.html', ctx)
         else:
             HttpResponseRedirect('invalid_data')
@@ -621,7 +619,7 @@ class UnreportedDaysDownloadCSV(PermissionRequiredMixin, LoginRequiredMixin, Vie
     permission_required = 'pmplatform_app.view_choice'
 
     def get(self, request):
-        list_of_unreported_days = request.session['unreported_days']
+        list_of_unreported_days = [(1, 2, 3), (4, 5, 6)]
         response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = 'attachment; filename="taskreport.csv"'
 
@@ -629,3 +627,4 @@ class UnreportedDaysDownloadCSV(PermissionRequiredMixin, LoginRequiredMixin, Vie
         for row in list_of_unreported_days:
             writer.writerow(row)
         return response
+
