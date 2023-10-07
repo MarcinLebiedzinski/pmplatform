@@ -624,17 +624,17 @@ class UnreportedDaysDownloadCSV(PermissionRequiredMixin, LoginRequiredMixin, Vie
 
     def get(self, request, user_id, start_time_int, end_time_int):
         return HttpResponse(f"{user_id}, {start_time_int}, {end_time_int}")
-        # start_time = datetime.datetime.strptime(start_time_int, '%Y%m%d')
-        # end_time = datetime.datetime.strptime(end_time_int, '%Y%m%d')
-        # dates_list = pd.date_range(start=start_time, end=end_time)
-        # list_of_unreported_days = []
-        # for day in dates_list:
-        #     if not UserTask.objects.filter(user_id=user_id, date=day):
-        #         list_of_unreported_days.append((day.strftime('%Y-%m-%d'), day))
-        # response = HttpResponse(content_type='text/csv')
-        # response['Content-Disposition'] = 'attachment; filename="unreported_days.csv"'
-        #
-        # writer = csv.writer(response)
-        # for row in list_of_unreported_days:
-        #     writer.writerow(row)
-        # return response
+        start_time = datetime.datetime.strptime(start_time_int, '%Y%m%d')
+        end_time = datetime.datetime.strptime(end_time_int, '%Y%m%d')
+        dates_list = pd.date_range(start=start_time, end=end_time)
+        list_of_unreported_days = []
+        for day in dates_list:
+            if not UserTask.objects.filter(user_id=user_id, date=day):
+                list_of_unreported_days.append((day.strftime('%Y-%m-%d'), day))
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="unreported_days.csv"'
+
+        writer = csv.writer(response)
+        for row in list_of_unreported_days:
+            writer.writerow(row)
+        return response
