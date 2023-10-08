@@ -660,9 +660,12 @@ class TotalProjectsTimeDownloadXlsx(PermissionRequiredMixin, LoginRequiredMixin,
                 hours_of_project += hours_of_task
             list_of_projects.append((project.name, hours_of_project))
 
+        my_dict = {}
         # Create DataFrame
         for row in list_of_projects:
-            df = pd.DataFrame({f'{row[0]}': row[1]})
+            my_dict[row[0]] = row[1]
+
+        df = pd.DataFrame(my_dict)
 
         # Save DataFrame to excel file
         excel_file = BytesIO()
