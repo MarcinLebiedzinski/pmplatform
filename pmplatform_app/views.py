@@ -660,16 +660,36 @@ class TotalProjectsTimeDownloadXlsx(PermissionRequiredMixin, LoginRequiredMixin,
                 hours_of_project += hours_of_task
             list_of_projects.append((project.name, hours_of_project))
 
+        # Create DataFrame
         df = pd.DataFrame({'Data': list_of_projects})
 
-        with BytesIO() as b:
-            writer = pd.ExcelWriter(b, engine='xlsxwriter')
-            df.to_excel(writer, sheet_name='totalprojectstime')
-            writer.save()
+        # Save DataFrame to excel file
+        excel_file = BytesIO()
+        xls_writer = pd.ExcelWriter(excel_file, engine='xlsxwriter')
+        df.to_excel(xls_writer, index=False, sheet_name='totalprojectstime')
+        xls_writer.save()
 
-        filename = 'django_simple.xlsx'
-        response = HttpResponse(b.getvalue(),
-                                    content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-        response['Content-Disposition'] = f'attachment; filename={filename}'
+        # HTTP response set
+        excel_file.seek(0)
+        response = HttpResponse(excel_file.read(),
+                                content_type='application/vnd.openxmlformats-officedocument.totalprojectstime.sheet')
+        response['Content-Disposition'] = 'attachment; filename=totalprojectstime.xlsx'
+
         return response
+
+
+
+
+
+
+        # with BytesIO() as b:
+        #     writer = pd.ExcelWriter(b, engine='xlsxwriter')
+        #     df.to_excel(writer, sheet_name='totalprojectstime')
+        #     writer.save()
+        #
+        # filename = 'django_simple.xlsx'
+        # response = HttpResponse(b.getvalue(),
+        #                             content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        # response['Content-Disposition'] = f'attachment; filename={filename}'
+        # return response
 
