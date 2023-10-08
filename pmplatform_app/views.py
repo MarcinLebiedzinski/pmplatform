@@ -661,7 +661,8 @@ class TotalProjectsTimeDownloadXlsx(PermissionRequiredMixin, LoginRequiredMixin,
             list_of_projects.append((project.name, hours_of_project))
 
         # Create DataFrame
-        df = pd.DataFrame({'Data': list_of_projects})
+        for row in list_of_projects:
+            df = pd.DataFrame({f'{row[0]}': row[1]})
 
         # Save DataFrame to excel file
         excel_file = BytesIO()
@@ -678,18 +679,4 @@ class TotalProjectsTimeDownloadXlsx(PermissionRequiredMixin, LoginRequiredMixin,
         return response
 
 
-
-
-
-
-        # with BytesIO() as b:
-        #     writer = pd.ExcelWriter(b, engine='xlsxwriter')
-        #     df.to_excel(writer, sheet_name='totalprojectstime')
-        #     writer.save()
-        #
-        # filename = 'django_simple.xlsx'
-        # response = HttpResponse(b.getvalue(),
-        #                             content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-        # response['Content-Disposition'] = f'attachment; filename={filename}'
-        # return response
 
