@@ -665,7 +665,7 @@ class TotalProjectsTimeDownloadXlsx(PermissionRequiredMixin, LoginRequiredMixin,
         for row in list_of_projects:
             my_dict[row[0]] = row[1]
 
-        df = pd.DataFrame(my_dict)
+        df = pd.DataFrame(my_dict, index=[0])
 
         # Save DataFrame to excel file
         excel_file = BytesIO()
