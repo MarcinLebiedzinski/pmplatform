@@ -629,7 +629,7 @@ class UnreportedDaysDownloadCSV(PermissionRequiredMixin, LoginRequiredMixin, Vie
         list_of_unreported_days = []
         for day in dates_list:
             if not UserTask.objects.filter(user_id=user_id, date=day):
-                list_of_unreported_days.append((day.strftime('%Y-%m-%d'), day))
+                list_of_unreported_days.append((day.strftime('%Y-%m-%d'), day.strftime('%A')))
         response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = 'attachment; filename="unreported_days.csv"'
 

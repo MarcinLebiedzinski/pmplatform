@@ -25,22 +25,17 @@
                     <th scope="row">{{day.0}}</th>
                     <th scope="row">{{day.1 | date:"l" }}</th>
                     {% if day.1.weekday == 5 %}
-                        <th scope="row">Non-working day</th>
+                        <th scope="row">Saturday</th>
                     {% elif day.1.weekday == 6 %}
-                        <th scope="row">Non-working day</th>
+                        <th scope="row">Sunday</th>
                     {% else %}
-                        <th scope="row">to fill</th>
+                        <th scope="row">unreported</th>
                     {% endif %}
                 </tr>
               {% endfor %}
 
               </tbody>
             </table>
-          </div>
-          <div class="p-1">
-            <p>user id - {{user_id}}</p>
-            <p>start time - {{start_time_int}}</p>
-            <p>end time - {{end_time_int}}</p>
           </div>
           <div class="p-1">
             <button type="button" class="btn btn-outline-primary">
