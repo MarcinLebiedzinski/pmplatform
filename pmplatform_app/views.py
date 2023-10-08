@@ -14,6 +14,8 @@ from pmplatform_app.forms import AddTimeForm, MyScheduleForm, TaskChoiceForm, Un
 import pandas as pd
 import datetime
 
+from io import BytesIO
+
 import csv
 
 # Create your views here.
@@ -658,9 +660,16 @@ class TotalProjectsTimeDownloadXlsx(PermissionRequiredMixin, LoginRequiredMixin,
                 hours_of_project += hours_of_task
             list_of_projects.append((project.name, hours_of_project))
 
-        df = pd.read_excel("totalprojectstime.xlsx")
-        response = HttpResponse(content_type='application/vnd.ms-excel')
-        response['Content-Disposition'] = f'attachment; filename=totalprojectstime.xlsx'
-        df.to_excel(response, index=False)
+        df = pd.DataFrame({'Data': list_of_projects})
 
+        with BytesIO() as b:
+            writer = pd.ExcelWriter(b, engine='xlsxwriter')
+            df.to_excel(writer, sheet_name='totalprojectstime')
+            writer.save()
+
+        filename = 'django_simple.xlsx'
+        response = HttpResponse(b.getvalue(),
+                                    content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        response['Content-Disposition'] = f'attachment; filename={filename}'
         return response
+
