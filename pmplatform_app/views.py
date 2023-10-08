@@ -637,3 +637,30 @@ class UnreportedDaysDownloadCSV(PermissionRequiredMixin, LoginRequiredMixin, Vie
         for row in list_of_unreported_days:
             writer.writerow(row)
         return response
+
+
+class TotalProjectsTimeDownloadXlsx(PermissionRequiredMixin, LoginRequiredMixin, View):
+    permission_required = 'pmplatform_app.view_choice'
+
+    def get(self, request):
+        projects = Project.objects.all()
+        list_of_projects = []
+        for project in projects:
+            tasks = Task.objects.filter(project_id=project.id)
+            hours_of_project = 0
+            list_of_tasks = []
+            for task in tasks:
+                reports = UserTask.objects.filter(task_id=task.id)
+                hours_of_task = 0
+                for report in reports:
+                    hours_of_task += report.amount_of_time
+                list_of_tasks.append((task.name, hours_of_task))
+                hours_of_project += hours_of_task
+            list_of_projects.append((project.name, hours_of_project))
+
+        df = pd.read_excel("totalprojectstime.xlsx")
+        response = HttpResponse(content_type='application/vnd.ms-excel')
+        response['Content-Disposition'] = f'attachment; filename=totalprojectstime.xlsx'
+        df.to_excel(response, index=False)
+
+        return response
