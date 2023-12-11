@@ -51,7 +51,6 @@
                         </div>
                         <div class="d-flex align-items-end justify-content-between border-top">
                             <a href="{% url 'cv_download' %}" class="btn w-100 border-end">Download CV</a>
-<!--                            <a href="#contact" class="btn w-50 btn-scroll">Contact Me</a>-->
                         </div>
                     </div>
                 </div>
@@ -63,7 +62,7 @@
                             modern and functional solutions. For many years I have gained skills and knowledge
                             in the field of design, supervision and implementation of various investments.<br><br />
                             Now I would like to change the direction of my career and take on the challenge
-                            as a Junior Python Developer. I am interested in information technology,
+                            as a Junior Python Developer / Junior Data Engineer. I am interested in information technology,
                             especially web programming and data engineering.
                             I completed a stationary programming course and created several of my own projects that
                             I would be happy to present at an interview.<br /><br />
@@ -142,6 +141,12 @@
                                         <p class="mb-2">HTML / JAVASCRIPT</p>
                                     </div>
                                 </div>
+
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">DOCKER</p>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="col-sm-6">
@@ -176,7 +181,7 @@
 
                                 <div class="skill mb-4">
                                     <div class="d-flex justify-content-between">
-                                        <p class="mb-2">ENGLISH - B1</p>
+                                        <p class="mb-2">ENGLISH - B1/B2</p>
                                     </div>
                                 </div>
                             </div>
@@ -261,6 +266,22 @@
                                                 <a href="{% url 'main' %}" class="link-light"><u>pmplatform</u></a>
                                             </div>
 
+                                            <!-- Fourth Portfolio project -->
+                                            <h2 class="mb-1">Web scraper - Ikea outlet</h2>
+                                            <img class="img-fluid w-50 mb-2 rounded-1" src="{% static 'img/portfolio-4.png' %}" alt="">
+                                            <div class="col-sm-12 mb-1">
+                                                <p class="mb-2">Ikea outlet web scraper is a docker-based web application whose purpose is to
+                                                    independently (running in the background) search for promotions/deals in the Ikea outlet
+                                                    section and notify the user via e-mail.</p>
+                                            </div>
+                                            <div class="col-sm-12 mb-1">
+                                                <span class="fw-medium text-primary">Used technologies: </span>Python, Django, Docker, Celery, Selenium, HTML & CSS (Bootstrap)
+                                            </div>
+                                            <div class="col-sm-12 mb-5">
+                                                <span class="fw-medium text-primary">Github: </span>
+                                                <a href="https://github.com/MarcinLebiedzinski/Web_Scrappers" class="link-light"><u>https://github.com/MarcinLebiedzinski/Web_Scrappers</u></a>
+                                            </div>                                            
+
                                             <!-- Second Portfolio project -->
                                             <h2 class="mb-1">Donation App</h2>
                                             <img class="img-fluid w-50 mb-2 rounded-1" src="{% static 'img/portfolio-2.png' %}" alt="">
@@ -295,19 +316,7 @@
                                                 <a href="https://github.com/MarcinLebiedzinski/Cinema_App" class="link-light"><u>https://github.com/MarcinLebiedzinski/Cinema_App</u></a>
                                             </div>
 
-                                            <!-- Fourth Portfolio project -->
-                                            <h2 class="mb-1">Web scraper - Ikea outlet</h2>
-                                            <img class="img-fluid w-50 mb-2 rounded-1" src="{% static 'img/portfolio-3.png' %}" alt="">
-                                            <div class="col-sm-12 mb-1">
-                                                <p class="mb-2">An application for scraping the Ikea website and searching for items displayed in the outlet section.</p>
-                                            </div>
-                                            <div class="col-sm-12 mb-1">
-                                                <span class="fw-medium text-primary">Used technologies: </span>Python, Django, Postgresql, Selenium, Celery, Docker
-                                            </div>
-                                            <div class="col-sm-12 mb-1">
-                                                <span class="fw-medium text-primary">Github: </span>
-                                                <a href="https://github.com/MarcinLebiedzinski/Web_Scrappers class="link-light"><u>https://github.com/MarcinLebiedzinski/Web_Scrappers</u></a>
-                                            </div>
+
 
                                         </div>
                                     </div>
@@ -324,7 +333,7 @@
                         <div class="border-start border-2 border-light pt-2 ps-5">
                             <div class="position-relative mb-4">
                                 <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
-                                <h5 class="mb-1">Senior Design Engineer</h5>
+                                <h5 class="mb-1">Senior Structural Engineer</h5>
                                 <p class="mb-2">Self employed | <small>06.2023 - now</small></p>
                                 <p>Designing temporary structures for construction purposes for the UK market </p>
                             </div>
@@ -340,45 +349,6 @@
                         </div>
                     </section>
                     <!-- Employment history End -->
-
-                    <!-- Contact Start -->
-<!--                    <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">-->
-<!--                        <h1 class="title pb-3 mb-5">Contact Me</h1>-->
-<!--						<p class="mb-4">The contact form is currently inactive. </p>-->
-<!--                        <form>-->
-<!--                            <div class="row g-3">-->
-<!--                                <div class="col-md-6">-->
-<!--                                    <div class="form-floating">-->
-<!--                                        <input type="text" class="form-control border-0 bg-secondary" id="name" placeholder="Your Name">-->
-<!--                                        <label for="name">Your Name</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-6">-->
-<!--                                    <div class="form-floating">-->
-<!--                                        <input type="email" class="form-control border-0 bg-secondary" id="email" placeholder="Your Email">-->
-<!--                                        <label for="email">Your Email</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="col-12">-->
-<!--                                    <div class="form-floating">-->
-<!--                                        <input type="text" class="form-control border-0 bg-secondary" id="subject" placeholder="Subject">-->
-<!--                                        <label for="subject">Subject</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="col-12">-->
-<!--                                    <div class="form-floating">-->
-<!--                                        <textarea class="form-control border-0 bg-secondary" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>-->
-<!--                                        <label for="message">Message</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="col-12">-->
-<!--                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </form>-->
-<!--                    </section>-->
-                    <!-- Contact End -->
-
                 </div>
             </div>
         </div>
